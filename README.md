@@ -2,6 +2,6 @@
 
 **This is final result**
 
-!(result)[result]
+!(result)[result.png]
 
 
