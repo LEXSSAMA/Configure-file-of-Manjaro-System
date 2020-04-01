@@ -1,0 +1,93 @@
+# Window
+window:
+  padding:
+    x: 10
+    y: 10
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #     - transparent: Title bar, transparent background and title bar buttons
+  #     - buttonless: Title bar, transparent background, but no title bar buttons
+  # decorations: buttonless
+  decorations: none
+  # Window class (Linux only):
+  class:
+    instance: Alacritty
+    general: Alacritty
+  dynamic_padding: false
+
+scrolling:
+  history: 10000 
+
+background_opacity: 0.75
+
+selection:
+  save_to_clipboard: true
+
+dynamic_title: true
+
+font:
+  normal:
+    # family: Monaco
+     family: monospace
+     style: Bold
+     #style: Italic
+  size: 15
+  use_thin_strokes: true
+  offset:
+    x: 0
+    y: 3
+
+draw_bold_text_with_bright_colors: true
+
+debug:
+  log_level: Info
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+  color: '0xffffff'
+
+# Colors (Gruvbox dark)
+colors:
+  # Default colors
+  primary:
+    # hard contrast: background = '0x1d2021'
+    # background: '0x282828'
+    background: '0x282a36'
+    # background: '0x1d2021'
+    # soft contrast: background = '0x32302f'
+    foreground: '0xeff0eb'
+
+  # Normal colors
+  normal:
+    black:   '0x282a36'
+    red:     '0xff5c57'
+    green:   '0x5af78e'
+    yellow:  '0xf3f99d'
+    blue:    '0x57c7ff'
+    magenta: '0xff6ac1'
+    cyan:    '0x9aedfe'
+    white:   '0xf1f1f0'
+
+  # Bright colors
+  bright:
+    black:   '0x686868'
+    red:     '0xff5c57'
+    green:   '0x5af78e'
+    yellow:  '0xf3f99d'
+    blue:    '0x57c7ff'
+    magenta: '0xff6ac1'
+    cyan:    '0x9aedfe'
+    white:   '0xeff0eb'
+    
+  selection:
+          text: '0x282a36'
+  background: '0xfeffff'
+   
+  cursor:
+       cursor: '0x97979b'

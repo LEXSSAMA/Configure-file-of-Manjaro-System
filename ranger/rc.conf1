@@ -1,0 +1,15 @@
+# for see images instant
+set preview_images true
+set preview_images_method w3m
+#for watch video instant
+set preview_script :scope.sh
+#for github 
+set vcs_aware true
+#for find file
+map f console scout -ftsea%space
+#for Download Youtube video 
+map ytv console shell youtube-dl -ic%space
+map yta console shell youtube-dl -xic%space
+# Which colorscheme to use?  These colorschemes are available by default:
+# default, jungle, snow, solarized
+set colorscheme default
