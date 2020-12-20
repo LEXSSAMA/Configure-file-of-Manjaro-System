@@ -18,11 +18,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smartindent
-inoremap ' ''<ESC>i
-inoremap " ""<ESC>i
-inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
-inoremap { {<CR>}<ESC>O
+
 map s <nop>
 map S :w<CR>
 map Q :q<CR>
@@ -31,10 +27,6 @@ noremap L 8l
 noremap H 8h
 noremap U 8k
 noremap D 8j
-" Use this option to define the table corner character
-let g:table_mode_corner = '|'
-" Use this option to define the delimiter which used by
-let g:table_mode_delimiter = ' '
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'rakr/vim-one'
@@ -42,7 +34,7 @@ Plug 'preservim/nerdtree'
 Plug 'ybian/smartim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'connorholyday/vim-snazzy'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'vimwiki/vimwiki'
 

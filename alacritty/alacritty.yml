@@ -1,58 +1,18 @@
-# Window
+# 默认窗口无标题栏，16:9的窗口比例启动
 window:
-  padding:
-    x: 10
-    y: 10
-  # Window decorations
-  #
-  # Values for `decorations`:
-  #     - full: Borders and title bar
-  #     - none: Neither borders nor title bar
-  #
-  # Values for `decorations` (macOS only):
-  #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background, but no title bar buttons
-  # decorations: buttonless
-  decorations: none
-  # Window class (Linux only):
-  class:
-    instance: Alacritty
-    general: Alacritty
-  dynamic_padding: false
+        padding:
+                x : 10
+                y : 10
 
-scrolling:
-  history: 10000 
-
+# 背景半透明，方便抄代码
 background_opacity: 0.75
 
-selection:
-  save_to_clipboard: true
-
-dynamic_title: true
-
-font:
-  normal:
-    # family: Monaco
-     family: monospace
-     style: Bold
-     #style: Italic
-  size: 15
-  use_thin_strokes: true
-  offset:
-    x: 0
-    y: 3
-
-draw_bold_text_with_bright_colors: true
-
-debug:
-  log_level: Info
-
-visual_bell:
-  animation: EaseOutExpo
-  duration: 0
-  color: '0xffffff'
-
-# Colors (Gruvbox dark)
+# 实时重载配置文件，不用重启测试配置选项
+live_config_reload: true
+decorations: none
+dynamic_padding: false
+scrolling:
+  history: 10000
 colors:
   # Default colors
   primary:
@@ -88,6 +48,14 @@ colors:
   selection:
           text: '0x282a36'
   background: '0xfeffff'
-   
-  cursor:
-       cursor: '0x97979b'
+font:
+  normal:
+    # family: Monaco
+     family: monospace
+     style: Bold
+     #style: Italic
+  size: 12
+  use_thin_strokes: true
+  offset:
+    x: 0
+    y: 3
