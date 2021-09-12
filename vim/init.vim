@@ -1,0 +1,1 @@
+/home/lqb/.config/nvim/init.vim
