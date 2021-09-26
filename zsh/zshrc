@@ -12,6 +12,7 @@ fi
 # Path to your oh-my-zsh installation.
 export LANG=en_US.UTF-8
 export ZSH="/home/lqb/.oh-my-zsh"
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH:/home/lqb/.cargo/bin:/home/lqb/.local/bin:"
 export TERMINAL=gnome-terminal
 # Set name of the theme to load --- if set to "random", it will

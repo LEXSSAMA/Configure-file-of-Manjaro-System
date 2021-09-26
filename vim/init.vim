@@ -1,25 +1,31 @@
 syntax on
 set encoding=utf-8
+set colorcolumn=130
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+"set runtime path
+set rtp+=~/.fzf
+set rtp+=~/.vim/bundle/Vundle.vim
+set clipboard+=unnamedplus
+
 set number
 set hlsearch
 set ignorecase
 set relativenumber
 set incsearch
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 set expandtab
 set autoindent
-set clipboard+=unnamedplus
-"set runtime path
-set rtp+=~/.fzf
-set rtp+=~/.vim/bundle/Vundle.vim
+set updatetime=100
 
 "Plug
 call plug#begin('~/.vim/plugged')
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/vim-easy-align'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mhinz/vim-signify'
 call plug#end()	
 
 "Vundle
@@ -44,12 +50,15 @@ nnoremap P "*p<CR>
 " :Tags mean use Tags function from fzf,
 " <C-R>a mean insert a content from register a in nomal mode.
 " <C-W> mean the word that are pointed by cursor.
-nnoremap <C-]> *:Tags <C-R><C-W><CR>
-nnoremap <C-\> :Rg <CR>
+nnoremap <C-]> *N:Tags <C-R><C-W><CR>
+nnoremap <C-\> *N:Rg <CR>
 nnoremap <C-f> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap zf  zf%<CR> "% mean jump to match bracket
-
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 " :help command to see detail
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -77,4 +86,24 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+" 检测 ~/.cache/tags 不存在就新建
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
 "hello world!
