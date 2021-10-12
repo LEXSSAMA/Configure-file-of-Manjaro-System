@@ -26,15 +26,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/vim-easy-align'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-signify'
+Plug 'phaazon/hop.nvim'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'junegunn/fzf.vim' 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()	
-
-"Vundle
-call vundle#begin()
-Plugin 'lifepillar/vim-gruvbox8'
-Plugin 'junegunn/fzf.vim' 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-call vundle#end()
 
 "theme
 colo gruvbox8_hard
@@ -50,11 +47,15 @@ nnoremap P "*p<CR>
 " :Tags mean use Tags function from fzf,
 " <C-R>a mean insert a content from register a in nomal mode.
 " <C-W> mean the word that are pointed by cursor.
-nnoremap <C-]> *N:Tags <C-R><C-W><CR>
+nnoremap <C-g> *N:Tags <C-R><C-W><CR>
 nnoremap <C-\> *N:Rg <CR>
 nnoremap <C-f> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap zf  zf%<CR> "% mean jump to match bracket
+nnoremap f :HopChar1<CR>
+
+lua require'hop'.setup { keys = 'asdfhjkqweruiopyxcvbnmlg' }
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
@@ -107,3 +108,4 @@ if !isdirectory(s:vim_tags)
 endif
 
 "hello world!
+
