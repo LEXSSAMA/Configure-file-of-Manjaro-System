@@ -28,6 +28,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-signify'
 Plug 'phaazon/hop.nvim'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'karb94/neoscroll.nvim'
 Plug 'junegunn/fzf.vim' 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -107,5 +108,6 @@ if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
-"hello world!
+lua require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'}, })
 
+"hello world!
