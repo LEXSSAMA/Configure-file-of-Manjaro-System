@@ -8,7 +8,7 @@ set laststatus=2
 set shortmess=a
 set hlsearch
 set backspace=2
-set mouse=a
+"set mouse=a
 set ignorecase
 " ./tags表示当前目录下的tags，分号表示向上搜索
 set tags=./tags;,.tags
@@ -27,6 +27,7 @@ set clipboard+=unnamedplus
 "set runtime path
 set rtp+=~/.fzf
 set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath^=~/.vim/plugged/leetcode
 
 call plug#begin('~/.vim/plugged')
 Plug 'phaazon/hop.nvim'
@@ -34,7 +35,8 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'Yggdroot/indentLine'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'lifepillar/vim-gruvbox8'
+Plug '8ooo8/leetcode'
+"Plug 'lifepillar/vim-gruvbox8'
 Plug 'junegunn/fzf.vim' 
 Plug 'godlygeek/tabular'
 Plug 'ludovicchabant/vim-gutentags'
@@ -44,6 +46,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'junegunn/vim-easy-align'
+Plug 'Chiel92/vim-autoformat'
 Plug 'lfv89/vim-interestingwords'
 Plug 'mhinz/vim-signify'
 Plug 'roxma/vim-tmux-clipboard'
@@ -54,6 +57,23 @@ Plug 'zackhsi/fzf-tags'
 Plug 'karb94/neoscroll.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+"vim-autoformat
+let g:autoformat_verbosemode=1 "开启详细模式便于查错
+let g:python3_host_prog="/usr/bin/python3.6"
+"autocmd BufWrite *.sql,*.c,*.py,*.java,*.js :Autoformat "设置发生保存事件时执行格式化
+
+"To disable the fallback to vim's indent file, retabbing and removing trailing whitespace, set the following variables to 0.
+"let g:autoformat_autoindent = 0
+"let g:autoformat_retab = 0
+"let g:autoformat_remove_trailing_spaces = 0
+
+" We can use command following in workspace to customized us code style; 
+" For more info : https://clang.llvm.org/docs/ClangFormat.html
+" clang-format -style=Mozilla -dump-config > .clang-format
+
+"let g:formatdef_mozilla = '"clang-format -style mozilla -"' " 我比较喜欢 mozilla 风格的代码
+"let g:formatters_c = ['mozilla']
 
 "vim-signify
 set updatetime=100
@@ -226,3 +246,6 @@ let g:VM_maps['Redo']               = '<c-r>' "Redo.
 " tabular
 nmap <F4> :Tabularize /
 vmap <F4> :Tabularize /
+
+
+
