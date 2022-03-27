@@ -82,6 +82,20 @@ require'fzf-lua'.setup
         git_icons   = true,
         file_icons  = true,
         color_icons = true,
+        vim.api.nvim_set_keymap('t','<M-j>',"<C-j>",{noremap = true }),
+        vim.api.nvim_set_keymap('t','<M-k>',"<C-k>",{noremap = true }),
+        border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+        hl = {
+            normal         = 'Normal',        -- window normal color (fg+bg)
+            border         = 'Normal',        -- border color (try 'FloatBorder')
+            -- Only valid with the builtin previewer:
+            cursor         = 'Cursor',        -- cursor highlight (grep/LSP matches)
+            cursorline     = 'CursorLine',    -- cursor line
+            search         = 'Search',        -- search matches (ctags)
+            title          = 'Normal',        -- preview border title (file/buffer)
+            -- scrollbar_f = 'PmenuThumb',    -- scrollbar "full" section highlight
+            -- scrollbar_e = 'PmenuSbar',     -- scrollbar "empty" section highlight
+        },
     } ,
 
     files = {
