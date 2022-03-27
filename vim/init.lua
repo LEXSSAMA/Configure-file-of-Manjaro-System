@@ -10,6 +10,7 @@ vim.o.shiftwidth     = 4
 vim.o.tabstop        = 4
 vim.o.incsearch      = true
 vim.o.ignorecase     = true
+vim.o.cursorline     = true
 vim.cmd('packadd packer.nvim')
 vim.cmd('syntax on')
 vim.cmd('set encoding=utf-8')
@@ -105,20 +106,20 @@ require'fzf-lua'.setup
         prompt = 'Files> ',
     },
     grep_cword = {
-        vim.api.nvim_set_keymap('n', '<M-g>', "<cmd>:lua require('fzf-lua').grep_cword()<CR>", { noremap = true, silent = true }),
+        vim.api.nvim_set_keymap('n', '<M-g>', "*<cmd>lua require('fzf-lua').grep_cword()<CR>", { noremap = true, silent = true }),
         glob_flag    = "--iglob",
         multiprocess = true,
         rg_opts      = "--sort-files --hidden --column --line-number --no-heading " ..
         "-s -w --type-add 'cmd:*.cmd' -tc -tpy -tcmd -th -tcpp "..
-        "--color=always --smart-case -g '!{.git,node_modules}/*'",
+        "--color=always --case-sensitive  -g '!{.git,node_modules}/*'",
     },
     tags_grep_cword = {
-        vim.api.nvim_set_keymap('n', '<M-]>', "<cmd>:lua require('fzf-lua').tags_grep_cword()<CR>", { noremap = true, silent = true }),
+        vim.api.nvim_set_keymap('n', '<M-]>', "*<cmd>:lua require('fzf-lua').tags_grep_cword()<CR>", { noremap = true, silent = true }),
         prompt       = 'Tags❯ ',
         ctags_file   = "tags",
         multiprocess = true,
         -- 'tags_live_grep' options, `rg` prioritizes over `grep`
-        rg_opts      = "--no-heading --color=always --smart-case",
+        rg_opts      = "--no-heading --color=always --case-sensitive",
         grep_opts    = "--color=auto --perl-regexp",
         no_header    = false,    -- hide grep|cwd header?
         no_header_i  = false,    -- hide interactive header?
