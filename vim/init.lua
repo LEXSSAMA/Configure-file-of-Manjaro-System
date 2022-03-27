@@ -41,6 +41,8 @@ vim.g.rainbow_active = 1
 vim.g.rainbow_guifgs   = {'RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick'}
 vim.g.rainbow_ctermfgs = {'lightblue', 'lightgreen', 'yellow', 'red', 'magenta'}
 
+vim.api.nvim_set_keymap('n' , '<Tab>' , '<cmd>Te<CR>' , {noremap = true , silent = true})
+
 vim.api.nvim_exec([[
 let g:VM_maps = {}                            "取消默认按键映射。
 let g:VM_maps['Find Under']         = '<M-n>' "进入多光标模式并选中光标下字符串。
@@ -80,8 +82,8 @@ require'fzf-lua'.setup
     winopts = {
         height      = 0.7,
         git_icons   = true,
-        file_icons  = true,
-        color_icons = true,
+        file_icons  = false,
+        color_icons = false,
         vim.api.nvim_set_keymap('t','<M-j>',"<C-j>",{noremap = true }),
         vim.api.nvim_set_keymap('t','<M-k>',"<C-k>",{noremap = true }),
         border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
@@ -231,7 +233,7 @@ require('bufferline').setup {
         -- [focused and unfocused]. eg: { '|', '|' }
         separator_style = "thick" ,
         enforce_regular_tabs = false ,
-        always_show_bufferline = false,
+        always_show_bufferline = true,
         sort_by = 'id'
     },
 }
