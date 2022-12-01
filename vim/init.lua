@@ -17,11 +17,12 @@ vim.cmd('set encoding=utf-8')
 vim.cmd('set backspace=2')
 vim.cmd('set tags=./tags;,.tags')
 vim.cmd('set colorcolumn=+1')
-vim.cmd('set textwidth=180')
+vim.cmd('set textwidth=120')
 vim.cmd('set clipboard+=unnamedplus')
 vim.cmd('set rtp+=~/.fzf')
 vim.cmd('colorscheme dracula')
-vim.cmd('highlight Comment cterm=italic')
+-- vim.cmd('highlight Comment cterm=italic')
+vim.cmd('let g:python3_host_prog = "/usr/bin/python3"')
 
 vim.api.nvim_set_keymap('n' , '<F4>' , ':Tabularize /'   , {noremap = true})
 vim.api.nvim_set_keymap('v' , '<F4>' , ':Tabularize /'   , {})
@@ -36,7 +37,6 @@ vim.api.nvim_set_keymap('n' , 'n'    , ':call WordNavigation(1)<CR> '    , {nore
 vim.api.nvim_set_keymap('n' , 'N'    , ':call WordNavigation(0)<CR> '    , {noremap = true , silent = true})
 vim.api.nvim_set_keymap('n' , '<F3>' , ':call UncolorAllWords()<CR> '    , {noremap = true , silent = true})
 vim.g.interestingWordsRandomiseColors = 1
-
 
 vim.g.rainbow_active = 1
 vim.g.rainbow_guifgs   = {'RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick'}
@@ -59,15 +59,18 @@ let g:VM_maps['Redo']               = '<M-r>' "Redo.
 
 vim.api.nvim_set_keymap('n' , '<M-o>' , '<C-o>' , {noremap = true})
 
-vim.api.nvim_set_keymap('n' , 'gb'    , ':BufferLineGoToBuffer '       , {noremap = true})
-vim.api.nvim_set_keymap('n' , '<M-l>' , '<cmd>BufferLineCyclePrev<CR>' , {noremap = true , silent = true})
-vim.api.nvim_set_keymap('n' , '<M-h>' , '<cmd>BufferLineCycleNext<CR>' , {noremap = true , silent = true})
-
-vim.api.nvim_set_keymap("n" , "gd"      , "<Plug>(coc-definition)"                                                      , {silent = true})
-vim.api.nvim_set_keymap("i" , "<TAB>"   , "pumvisible() ? '<C-n>' : '<TAB>'"                                            , {noremap = true  , silent = true , expr = true})
-vim.api.nvim_set_keymap("i" , "<S-TAB>" , "pumvisible() ? '<C-p>' : '<C-h>'"                                            , {noremap = true  , expr = true})
-vim.api.nvim_set_keymap("i" , "<CR>"    , "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'" , {silent = true   , expr = true   , noremap = true})
-
+-- vim.api.nvim_set_keymap('n' , 'gb'    , ':BufferLineGoToBuffer '       , {noremap = true})
+-- vim.api.nvim_set_keymap('n' , '<M-l>' , '<cmd>BufferLineCyclePrev<CR>' , {noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-h>' , '<cmd>BufferLineCycleNext<CR>' , {noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-1>' , '<Cmd>BufferLineGoToBuffer 1<CR>',{noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-2>' , '<Cmd>BufferLineGoToBuffer 2<CR>',{noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-3>' , '<Cmd>BufferLineGoToBuffer 3<CR>',{noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-4>' , '<Cmd>BufferLineGoToBuffer 4<CR>',{noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-5>' , '<Cmd>BufferLineGoToBuffer 5<CR>',{noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-6>' , '<Cmd>BufferLineGoToBuffer 6<CR>',{noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-7>' , '<Cmd>BufferLineGoToBuffer 7<CR>',{noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-8>' , '<Cmd>BufferLineGoToBuffer 8<CR>',{noremap = true , silent = true})
+-- vim.api.nvim_set_keymap('n' , '<M-9>' , '<Cmd>BufferLineGoToBuffer 9<CR>',{noremap = true , silent = true})
 
 require('hop').setup {
     HopChar1 = {
@@ -75,7 +78,6 @@ require('hop').setup {
         keys = 'etovxqpdygfblzhckisuran'
     },
 }
-
 
 local actions = require "fzf-lua.actions"
 require'fzf-lua'.setup
@@ -109,8 +111,7 @@ require'fzf-lua'.setup
         vim.api.nvim_set_keymap('n', '<M-g>', "*<cmd>lua require('fzf-lua').grep_cword()<CR>", { noremap = true, silent = true }),
         glob_flag    = "--iglob",
         multiprocess = true,
-        rg_opts      = "--sort-files --hidden --column --line-number --no-heading " ..
-        "-s -w --type-add 'cmd:*.cmd' -tc -tpy -tcmd -th -tcpp "..
+        rg_opts      = "--hidden -j9 --column --line-number --no-heading " ..
         "--color=always --case-sensitive  -g '!{.git,node_modules}/*'",
     },
     tags_grep_cword = {
@@ -239,24 +240,22 @@ require('bufferline').setup {
     },
 }
 
-return require('packer').startup({
-    function()
-        use { 'wbthomason/packer.nvim'     }
-        use { 'phaazon/hop.nvim'           }
-        use { 'junegunn/vim-easy-align'    }
-        use { 'karb94/neoscroll.nvim'      }
-        use { 'godlygeek/tabular'          }
-        use { 'Chiel92/vim-autoformat'     }
-        use { 'frazrepo/vim-rainbow'       }
-        use { 'Yggdroot/indentLine'        }
-        use { 'lfv89/vim-interestingwords' }
-        use { 'dracula/vim'                }
-        use { 'mg979/vim-visual-multi'    }
-        use { 'junegunn/fzf'           , run      = './install --bin'}
-        use { 'ibhagwan/fzf-lua'       , requires = { 'kyazdani42/nvim-web-devicons' } }
-        use {'akinsho/bufferline.nvim' , requires = 'kyazdani42/nvim-web-devicons'}
-       	use {'neoclide/coc.nvim'       , branch   = 'release'}
-        use {'vim-airline/vim-airline'}
-        use {'vim-airline/vim-airline-themes'}
-    end
-})
+return require('packer').startup(function()
+    use {'wbthomason/packer.nvim'      }
+    use { 'phaazon/hop.nvim'           }
+    use { 'junegunn/vim-easy-align'    }
+    use { 'karb94/neoscroll.nvim'      }
+    use { 'godlygeek/tabular'          }
+    use { 'Chiel92/vim-autoformat'     }
+    use { 'frazrepo/vim-rainbow'       }
+    use { 'Yggdroot/indentLine'        }
+    use { 'lfv89/vim-interestingwords' }
+    use { 'dracula/vim'                }
+    use { 'mg979/vim-visual-multi'    }
+    use { 'junegunn/fzf'           , run      = './install --bin'}
+    use { 'ibhagwan/fzf-lua'       , requires = { 'kyazdani42/nvim-web-devicons' } }
+    use {'akinsho/bufferline.nvim' , requires = 'kyazdani42/nvim-web-devicons'}
+    -- use {'neoclide/coc.nvim'    , branch   = 'release'}
+    use {'vim-airline/vim-airline'        }
+    use {'vim-airline/vim-airline-themes' }
+end)
