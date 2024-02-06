@@ -4,25 +4,37 @@ set expandtab
 set hlsearch
 set ignorecase
 set cursorline
+set mouse=
+set nowrap
 
 let mapleader   ="\<SPACE>"
 set tags        =./tags,tags;$HOME
 set tabstop     =4
 set softtabstop =4
 set shiftwidth  =4
-set colorcolumn =120
-set textwidth   =120
+set colorcolumn =150
+set textwidth   =150
 set rtp        +=/usr/bin/fzf
 
+nnoremap <F10> :cd /data/lqb/REL_8_10_X_INT<CR>
+
 call plug#begin('~/.config/nvim/plugged')
-Plug 'roxma/vim-tmux-clipboard' "tmux
+""""""""""Theme Begin""""""""""""""""""""
 Plug 'morhetz/gruvbox' "Theme
+Plug 'sainnhe/everforest'
+Plug 'aonemd/quietlight.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'preservim/vim-colors-pencil'
+""""""""""Theme End""""""""""""""""""""
+
+Plug 'roxma/vim-tmux-clipboard' "tmux
 Plug 'phaazon/hop.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'lfv89/vim-interestingwords'
 Plug 'frazrepo/vim-rainbow'
 Plug 'mhinz/vim-startify'
+"Plug 'nvim-tree/nvim-web-devicons'
 Plug 'Chiel92/vim-autoformat'
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
@@ -33,6 +45,7 @@ Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 "neoscroll.nvim"
@@ -43,11 +56,15 @@ nnoremap f :HopChar1<CR>
 lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }
 
 "Theme"
+set t_Co=256
+set termguicolors
 set background=dark " or light if you want light mode
+"set background=light " or light if you want light mode
+"colorscheme dracula 
+"colorscheme quietlight
+colorscheme gruvbox
 let g:gruvbox_italic=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set termguicolors
-colorscheme gruvbox
 
 "vim-multiple-cursors"
 let g:VM_maps = {}
@@ -72,6 +89,7 @@ let g:interestingWordsRandomiseColors = 1
 
 "autoformat
 let g:python3_host_prog="/usr/bin/python3"
+let g:formatters_python = ['black']
 nmap <F5> :Autoformat<CR>
 vmap <F5> :Autoformat<CR>
 
@@ -122,36 +140,39 @@ let g:indentLine_color_term = 202
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 "fzf.vim"
-let g:fzf_preview_window = ['up:80%:cycle','ctrl-/']
+let g:fzf_preview_window = ['up:65%:wrap','ctrl-/']
 command! -bang -nargs=* Rg
-            \ call fzf#vim#grep("rg --column -s -w --type-add 'cmd:*.cmd' --type-add 'sh:*.sh'
-            \   --type-add 'mk:*.mk' -tsh -tc -tpy -tcmd -th -tmk -tcpp
-            \   --threads 9 --line-buffered --color=always -- ".shellescape(expand('<cword>')), 1,
-            \   fzf#vim#with_preview({'options': ['--height=60%','--bind=alt-j:down,alt-k:up']}), <bang>0)
-nnoremap <M-g> *N:Rg <CR>
+            \ call fzf#vim#grep("rg --sort none  --vimgrep -s -w --type-add 'cmd:*.cmd' --type-add 'sh:*.sh'
+            \   --type-add 'mk:*.mk' -tsh -tc -tpy -tcmd -th -tmk -tcpp 
+            \   --threads 9 --line-buffered --color=auto 
+            \   --mmap -U -- ".shellescape(expand('<cword>')), 1,
+            \   fzf#vim#with_preview({'options': ['--height=70%','--bind=alt-j:down,alt-k:up']}), <bang>0)
+nnoremap <M-g> *N :Rg <CR>
 
-nnoremap F :Files<CR>
+nnoremap <M-f> :Files<CR>
 command! -bang -nargs=? -complete=dir Files
             \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--bind=alt-j:down,alt-k:up']}), <bang>0)
 
 "fzf-preview"
 let g:fzf_preview_floating_window_rate = 0.9
-let g:fzf_preview_default_fzf_options  = {'--layout':'reverse', '--preview-window': 'up:80%:cycle' ,'--bind':'alt-j:down,alt-k:up'}
-let g:fzf_preview_grep_cmd             = 'rg --line-number --no-heading --color = never --hidden --threads 9'
-let g:fzf_preview_command              = 'bat --color=always --plain{-1}'
+let g:fzf_preview_default_fzf_options  = {'--preview-window': 'right:65%:cycle' ,'--bind':'alt-j:down,alt-k:up'}
+let g:fzf_preview_grep_cmd             = 'rg --line-number --no-heading --color=never --hidden --threads 9'
+let g:fzf_preview_command              = 'bat --color=always --plain{-1} -m '
 let g:fzf_preview_cache_directory      = expand('~/.cache/vim/fzf_preview')
 let g:fzf_preview_direct_window_option = ''
 let g:fzf_preview_buffers_jump         = 0
 
-nnoremap <silent> <leader>/ :<C-u>FzfPreviewLines --add-fzf-arg=-e
-            \--add-fzf-arg=--no-sort --add-fzf-arg=--query=""<CR>"'"
+nnoremap <silent> <leader>/ :<C-u>FzfPreviewLines --add-fzf-arg=-e --add-fzf-arg=--no-sort --add-fzf-arg=--query=""<CR>"'"
 
 "fzf-tags"
 nnoremap <F2> :BTags<CR>
-nnoremap  B :Buffers<CR>
+nnoremap <M-b> :Buffers<CR>
 
 "Airline
-let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline_theme='google_dark'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_z = ''
+let g:airline_section_x = ''
 
 "coc.nvim"
 set encoding   =utf-8
@@ -176,10 +197,28 @@ function! CheckBackspace() abort
 endfunction
 
 nmap <leader>rn  <Plug>(coc-rename)
+" GoTo code navigation
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+set signcolumn=number
+
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "Ctags"
 nnoremap <M-]> <C-]>
 nnoremap <M-t> <C-t>
 nnoremap <M-o> <C-o>
+
+"vim-table-mode
+"let b:table_mode_corner='+'
+let g:table_mode_corner_corner='+'
+let g:table_mode_corner='+'
+
+"alpha-nvim
+"lua require('alpha').setup(require'alpha.themes.startify'.config)
+
+

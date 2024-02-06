@@ -1,160 +1,22 @@
-vim.o.hidden         = true
-vim.o.backup         = false
-vim.o.writebackup    = false
-vim.o.updatetime     = 300
-vim.o.expandtab      = true
-vim.o.number         = true
-vim.o.softtabstop    = 4
-vim.o.relativenumber = true
-vim.o.shiftwidth     = 4
-vim.o.tabstop        = 4
-vim.o.incsearch      = true
-vim.o.ignorecase     = true
-vim.o.cursorline     = true
-vim.cmd('packadd packer.nvim')
-vim.cmd('syntax on')
-vim.cmd('set encoding=utf-8')
-vim.cmd('set backspace=2')
-vim.cmd('set tags=./tags;,.tags')
-vim.cmd('set colorcolumn=+1')
-vim.cmd('set textwidth=120')
-vim.cmd('set clipboard+=unnamedplus')
-vim.cmd('set rtp+=~/.fzf')
-vim.cmd('colorscheme dracula')
--- vim.cmd('highlight Comment cterm=italic')
-vim.cmd('let g:python3_host_prog = "/usr/bin/python3"')
-
-vim.api.nvim_set_keymap('n' , '<F4>' , ':Tabularize /'   , {noremap = true})
-vim.api.nvim_set_keymap('v' , '<F4>' , ':Tabularize /'   , {})
-
-vim.api.nvim_set_keymap('n' , '<F5>' , ':Autoformat<CR>' , {noremap = true})
-vim.api.nvim_set_keymap('v' , '<F5>' , ':Autoformat<CR>' , {})
-vim.g.autoformat_verbosemode = 1
-
-vim.api.nvim_set_keymap('n' , 'K'    , ':call InterestingWords("n")<CR>' , {noremap = true , silent = true})
-vim.api.nvim_set_keymap('v' , 'K'    , ':call InterestingWords("v")<CR>' , {silent = true})
-vim.api.nvim_set_keymap('n' , 'n'    , ':call WordNavigation(1)<CR> '    , {noremap = true , silent = true})
-vim.api.nvim_set_keymap('n' , 'N'    , ':call WordNavigation(0)<CR> '    , {noremap = true , silent = true})
-vim.api.nvim_set_keymap('n' , '<F3>' , ':call UncolorAllWords()<CR> '    , {noremap = true , silent = true})
-vim.g.interestingWordsRandomiseColors = 1
-
-vim.g.rainbow_active = 1
-vim.g.rainbow_guifgs   = {'RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick'}
-vim.g.rainbow_ctermfgs = {'lightblue', 'lightgreen', 'yellow', 'red', 'magenta'}
-
-vim.api.nvim_set_keymap('n' , '<Tab>' , '<cmd>Te<CR>' , {noremap = true , silent = true})
-
-vim.api.nvim_exec([[
-let g:VM_maps = {}                            "取消默认按键映射。
-let g:VM_maps['Find Under']         = '<M-n>' "进入多光标模式并选中光标下字符串。
-let g:VM_maps['Find Subword Under'] = '<M-n>' "选中下一个字符串。
-let g:VM_maps['Find Next']          = 'n'     "往下查找并增加光标。
-let g:VM_maps['Find Prev']          = 'N'     "网上查找并增加光标。
-let g:VM_maps['Skip Region']        = 'q'     "跳过当前光标到下一个。
-let g:VM_maps['Remove Region']      = 'Q'     "取消当前光标。
-let g:VM_maps['Select All']         = '\vA'   "进入多光标模式并选中所有同光标下的字符串。
-let g:VM_maps['Undo']               = 'u'     "Undo.
-let g:VM_maps['Redo']               = '<M-r>' "Redo.
-]],false)
-
+-- enable line number
+vim.o.number = true
+-- set tab to 4 space
+vim.o.expandtab = true
+vim.o.tabstop = 4 
+vim.o.softtabstop = 4 
+vim.o.shiftwidth = 4 
+vim.o.cursorline = true
+vim.o.ignorecase = true
+vim.o.colorcolumn = "150"
+vim.o.textwidth = "150"
+vim.g.mapleader = " "
+-- vim.o.mouse = "a"
+-- Don't hightlight search results
+vim.o.hlsearch = false
 vim.api.nvim_set_keymap('n' , '<M-o>' , '<C-o>' , {noremap = true})
 
--- vim.api.nvim_set_keymap('n' , 'gb'    , ':BufferLineGoToBuffer '       , {noremap = true})
--- vim.api.nvim_set_keymap('n' , '<M-l>' , '<cmd>BufferLineCyclePrev<CR>' , {noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-h>' , '<cmd>BufferLineCycleNext<CR>' , {noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-1>' , '<Cmd>BufferLineGoToBuffer 1<CR>',{noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-2>' , '<Cmd>BufferLineGoToBuffer 2<CR>',{noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-3>' , '<Cmd>BufferLineGoToBuffer 3<CR>',{noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-4>' , '<Cmd>BufferLineGoToBuffer 4<CR>',{noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-5>' , '<Cmd>BufferLineGoToBuffer 5<CR>',{noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-6>' , '<Cmd>BufferLineGoToBuffer 6<CR>',{noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-7>' , '<Cmd>BufferLineGoToBuffer 7<CR>',{noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-8>' , '<Cmd>BufferLineGoToBuffer 8<CR>',{noremap = true , silent = true})
--- vim.api.nvim_set_keymap('n' , '<M-9>' , '<Cmd>BufferLineGoToBuffer 9<CR>',{noremap = true , silent = true})
 
-require('hop').setup {
-    HopChar1 = {
-        vim.api.nvim_set_keymap('n', 'f', "<cmd>HopChar1<CR>",{noremap = true}),
-        keys = 'etovxqpdygfblzhckisuran'
-    },
-}
-
-local actions = require "fzf-lua.actions"
-require'fzf-lua'.setup
-{
-    winopts = {
-        height      = 0.7,
-        git_icons   = true,
-        file_icons  = false,
-        color_icons = false,
-        vim.api.nvim_set_keymap('t','<M-j>',"<C-j>",{noremap = true }),
-        vim.api.nvim_set_keymap('t','<M-k>',"<C-k>",{noremap = true }),
-        border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-        hl = {
-            normal         = 'Normal',        -- window normal color (fg+bg)
-            border         = 'Normal',        -- border color (try 'FloatBorder')
-            -- Only valid with the builtin previewer:
-            cursor         = 'Cursor',        -- cursor highlight (grep/LSP matches)
-            cursorline     = 'CursorLine',    -- cursor line
-            search         = 'Search',        -- search matches (ctags)
-            title          = 'Normal',        -- preview border title (file/buffer)
-            -- scrollbar_f = 'PmenuThumb',    -- scrollbar "full" section highlight
-            -- scrollbar_e = 'PmenuSbar',     -- scrollbar "empty" section highlight
-        },
-    } ,
-
-    files = {
-        vim.api.nvim_set_keymap('n', '<M-f>', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true }),
-        prompt = 'Files> ',
-    },
-    grep_cword = {
-        vim.api.nvim_set_keymap('n', '<M-g>', "*<cmd>lua require('fzf-lua').grep_cword()<CR>", { noremap = true, silent = true }),
-        glob_flag    = "--iglob",
-        multiprocess = true,
-        rg_opts      = "--hidden -j9 --column --line-number --no-heading " ..
-        "--color=always --case-sensitive  -g '!{.git,node_modules}/*'",
-    },
-    tags_grep_cword = {
-        vim.api.nvim_set_keymap('n', '<M-]>', "*<cmd>:lua require('fzf-lua').tags_grep_cword()<CR>", { noremap = true, silent = true }),
-        prompt       = 'Tags❯ ',
-        ctags_file   = "tags",
-        multiprocess = true,
-        -- 'tags_live_grep' options, `rg` prioritizes over `grep`
-        rg_opts      = "--no-heading --color=always --case-sensitive",
-        grep_opts    = "--color=auto --perl-regexp",
-        no_header    = false,    -- hide grep|cwd header?
-        no_header_i  = false,    -- hide interactive header?
-    },
-    btags = {
-        vim.api.nvim_set_keymap('n', '<F2>', "<cmd>:lua require('fzf-lua').btags()<CR>", { noremap = true, silent = true }),
-        prompt       = 'BTags❯ ',
-        ctags_file   = "tags",
-        rg_opts      = "--no-heading --color=always",
-        grep_opts    = "--color=auto --perl-regexp",
-        multiprocess = true,
-        fzf_opts     = {
-            ['--delimiter'] = "'[\\]:]'",
-            ["--with-nth"]  = '2..',
-            ["--tiebreak"]  = 'index',
-        },
-    },
-
-    buffers = {
-        vim.api.nvim_set_keymap('n', '<M-b>', "<cmd>:lua require('fzf-lua').buffers()<CR>", { noremap = true, silent = true }),
-        prompt        = 'Buffers❯ ',
-        sort_lastused = true,         -- sort buffers() by last used
-
-    },
-    previewers = {
-        bat = {
-            cmd    = "bat",
-            args   = "--style=numbers,changes --color always --line-range :500 {}",
-            theme  = 'Coldark-Dark', -- bat preview theme (bat --list-themes)
-            config = nil,            -- nil uses $BAT_CONFIG_PATH
-        },
-    },
-}
-
+--------------- neoscroll setup begin -----------------------------------
 require('neoscroll').setup({
     hide_cursor          = true  , -- Hide cursor while scrolling
     stop_eof             = true  , -- Stop at <EOF> when scrolling downwards
@@ -176,86 +38,281 @@ t['zt']    = { 'zt'     , { '250' } }
 t['zz']    = { 'zz'     , { '250' } }
 t['zb']    = { 'zb'     , { '250' } }
 require('neoscroll.config').set_mappings(t)
+--------------- neoscroll setup end -----------------------------------
 
-require('bufferline').setup {
-    options = {
-        mode = "buffers",
-        numbers =  "ordinal" ,
-        close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
-        right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
-        left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
-        middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
-        indicator_icon = '▎',
-        buffer_close_icon = '',
-        modified_icon = '●',
-        close_icon = '',
-        left_trunc_marker = '',
-        right_trunc_marker = '',
-        name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
-            -- remove extension from markdown files for example
-            if buf.name:match('%.md') then
-                return vim.fn.fnamemodify(buf.name, ':t:r')
-            end
-        end,
-        max_name_length = 18,
-        max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
-        tab_size = 18,
-        diagnostics =  "nvim_lsp",
-        diagnostics_update_in_insert = false,
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-            return "("..count..")"
-        end,
-        -- NOTE: this will be called a lot so don't do any heavy processing here
-        custom_filter = function(buf_number, buf_numbers)
-            -- filter out filetypes you don't want to see
-            if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
-                return true
-            end
-            -- filter out by buffer name
-            if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
-                return true
-            end
-            -- filter out based on arbitrary rules
-            -- e.g. filter out vim wiki buffer from tabline in your work repo
-            if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
-                return true
-            end
-            -- filter out by it's index number in list (don't show first buffer)
-            if buf_numbers[1] ~= buf_number then
-                return true
-            end
-        end,
-        offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center"}},
-        show_buffer_icons = true , -- disable filetype icons for buffers
-        show_buffer_close_icons = true ,
-        show_close_icon = true ,
-        show_tab_indicators = true,
-        persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        -- can also be a table containing 2 custom separators
-        -- [focused and unfocused]. eg: { '|', '|' }
-        separator_style = "thick" ,
-        enforce_regular_tabs = false ,
-        always_show_bufferline = true,
-        sort_by = 'id'
+--------------- fzf-lua setup begin -----------------------------------
+local actions = require "fzf-lua.actions"
+require'fzf-lua'.setup
+{
+    winopts = {
+        height      = 0.85,
+        width       = 0.80,
+        row         = 0.35,
+        col         = 0.50,
+        git_icons   = false,
+        file_icons  = false,
+        color_icons = false,
+        border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+        preview = {
+            -- default     = 'bat',           -- override the default previewer?
+            -- default uses the 'builtin' previewer
+            border         = 'border',        -- border|noborder, applies only to
+            -- native fzf previewers (bat/cat/git/etc)
+            wrap           = 'nowrap',        -- wrap|nowrap
+            hidden         = 'nohidden',      -- hidden|nohidden
+            vertical       = 'up:65%',        -- up|down:size
+            horizontal     = 'right:60%',     -- right|left:size
+            layout         = 'vertical',          -- horizontal|vertical|flex
+            flip_columns   = 120,             -- #cols to switch to horizontal on flex
+            -- Only used with the builtin previewer:
+            title          = true,            -- preview border title (file/buf)?
+            title_pos      = "center",        -- left|center|right, title alignment
+            scrollbar      = 'float',         -- `false` or string:'float|border'
+            -- float:  in-window floating border
+            -- border: in-border chars (see below)
+            scrolloff      = '-2',            -- float scrollbar offset from right
+            -- applies only when scrollbar = 'float'
+            scrollchars    = {'█', '' },      -- scrollbar chars ({ <full>, <empty> }
+            -- applies only when scrollbar = 'border'
+            delay          = 100,             -- delay(ms) displaying the preview
+            -- prevents lag on fast scrolling
+            winopts = {                       -- builtin previewer window options
+                number            = true,
+                relativenumber    = false,
+                cursorline        = true,
+                cursorlineopt     = 'both',
+                cursorcolumn      = false,
+                signcolumn        = 'no',
+                list              = false,
+                foldenable        = false,
+                foldmethod        = 'manual',
+            },
+        } ,
+    },
+    keymap = {
+        builtin = {
+            -- neovim `:tmap` mapping for the fzf win
+            ["<M-d>"] = "preview-page-down",
+            ["<M-u>"] = "preview-page-up",
+        },
+        fzf = {
+            -- fzf '--bind=' options
+            ["alt-j"] = "down",
+            ["alt-k"] = "up",
+        }
+    },
+    action = {
+        -- These override the default tables completely
+        -- no need to set to `false` to disable an action
+        -- delete or modify is sufficient
+        files = {
+            -- providers that inherit these actions:
+            --   files, git_files, git_status, grep, lsp
+            --   oldfiles, quickfix, loclist, tags, btags
+            --   args
+            -- default action opens a single selection
+            -- or sends multiple selection to quickfix
+            -- replace the default action with the below
+            -- to open all files whether single or multiple
+            -- ["default"]     = actions.file_edit,
+            ["default"]     = actions.file_edit_or_qf,
+            ["ctrl-s"]      = actions.file_split,
+            ["ctrl-v"]      = actions.file_vsplit,
+            ["ctrl-t"]      = actions.file_tabedit,
+        },
+        buffers = {
+            -- providers that inherit these actions:
+            --   buffers, tabs, lines, blines
+            ["default"]     = actions.buf_edit,
+            ["ctrl-s"]      = actions.buf_split,
+            ["ctrl-v"]      = actions.buf_vsplit,
+            ["ctrl-t"]      = actions.buf_tabedit,
+        },
+    },
+    files = {
+        vim.api.nvim_set_keymap('n', '<M-f>', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true }),
+        prompt = 'Files> ',
+    },
+    grep_cword = {
+        vim.api.nvim_set_keymap('n', '<M-g>', "<cmd>lua require('fzf-lua').grep_cword()<CR>", { noremap = true, silent = true }),
+        glob_flag    = "--iglob",
+        multiprocess = true,
+        rg_opts      = "--sort none -U --mmap --hidden -j9 --column --line-number --no-heading --color=auto --case-sensitive  -g '!{.git,node_modules}/*'",
+    },
+    grep_visual = {
+        vim.api.nvim_set_keymap('v', '<M-g>', "<cmd>lua require('fzf-lua').grep_visual()<CR>", { noremap = true, silent = true }),
+        multiprocess = true,
+        rg_opts      = "--sort none -U --mmap --hidden -j9 --column --line-number --no-heading --color=auto --case-sensitive  -g '!{.git,node_modules}/*'",
+    },
+    tags_grep_cword = {
+        vim.api.nvim_set_keymap('n', '<M-]>', "<cmd>:lua require('fzf-lua').tags_grep_cword()<CR>", { noremap = true, silent = true }),
+        prompt       = 'Tags❯ ',
+        ctags_file   = "tags",
+        multiprocess = true,
+        -- 'tags_live_grep' options, `rg` prioritizes over `grep`
+        rg_opts      = "--no-heading --color=always --case-sensitive",
+        grep_opts    = "--color=auto --perl-regexp",
+        no_header    = false,    -- hide grep|cwd header?
+        no_header_i  = false,    -- hide interactive header?
+    },
+    btags = {
+        vim.api.nvim_set_keymap('n', '<F2>', "<cmd>:lua require('fzf-lua').btags()<CR>", { noremap = true, silent = true }),
+        prompt       = 'BTags❯ ',
+        ctags_file   = "tags",
+        rg_opts      = "--sort none -U --mmap -j9 --no-heading --color=auto --case-sensitive  -g '!{.git,node_modules}/*'",
+        grep_opts    = "--color=auto --perl-regexp",
+        multiprocess = true,
+        fzf_opts     = { ["--info"] = "default", ["--tiebreak"] = "begin" },
+    } ,
+    buffers = {
+        vim.api.nvim_set_keymap('n', '<M-b>', "<cmd>:lua require('fzf-lua').buffers()<CR>", { noremap = true, silent = true }),
+        prompt        = 'Buffers❯ ',
+        sort_lastused = true,         -- sort buffers() by last used
+    },
+    previewers = {
+        bat = {
+            cmd    = "bat",
+            args   = "--style=numbers,changes --color always --line-range :500 {}",
+            theme  = 'Coldark-Dark', -- bat preview theme (bat --list-themes)
+            config = nil,            -- nil uses $BAT_CONFIG_PATH
+        },
     },
 }
+--------------- fzf-lua setup end -----------------------------------
+
+--------------- gruvbox setup begin --------------------------------
+require("gruvbox").setup({
+    terminal_colors = true, -- add neovim terminal colors
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
+    },
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true, -- invert background for search, diffs, statuslines and errors
+    contrast = "", -- can be "hard", "soft" or empty string
+    palette_overrides = {},
+    overrides = {},
+    dim_inactive = false,
+    transparent_mode = false,
+})
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd("colorscheme gruvbox")
+--------------- gruvbox setup end --------------------------------
+
+--------------- vim-autoformat begin -----------------------------
+vim.api.nvim_set_keymap('n' , '<F5>' , ':Autoformat<CR>' , {noremap = true})
+vim.api.nvim_set_keymap('v' , '<F5>' , ':Autoformat<CR>' , {})
+vim.g.autoformat_verbosemode = 1
+--------------- vim-autoformat end -----------------------------
+
+--------------- tabular setup begin -----------------------------
+vim.api.nvim_set_keymap('n' , '<F4>' , ':Tabularize /'   , {noremap = true})
+vim.api.nvim_set_keymap('v' , '<F4>' , ':Tabularize /'   , {})
+--------------- tabular setup end -----------------------------
+
+--------------- vim-interestingwords setup begin -----------------------------
+vim.api.nvim_set_keymap('n' , 'K'    , ':call InterestingWords("n")<CR>' , {noremap = true , silent = true})
+vim.api.nvim_set_keymap('v' , 'K'    , ':call InterestingWords("v")<CR>' , {silent = true})
+vim.api.nvim_set_keymap('n' , 'n'    , ':call WordNavigation(1)<CR> '    , {noremap = true , silent = true})
+vim.api.nvim_set_keymap('n' , 'N'    , ':call WordNavigation(0)<CR> '    , {noremap = true , silent = true})
+vim.api.nvim_set_keymap('n' , '<F3>' , ':call UncolorAllWords()<CR> '    , {noremap = true , silent = true})
+vim.g.interestingWordsRandomiseColors = 1
+--------------- vim-interestingwords setup end -----------------------------
+
+--------------- vim-visual-multi setup begin -----------------------------
+vim.api.nvim_exec([[
+let g:VM_maps = {}                            "取消默认按键映射。
+let g:VM_maps['Find Under']         = '<M-n>' "进入多光标模式并选中光标下字符串。
+let g:VM_maps['Find Subword Under'] = '<M-n>' "选中下一个字符串。
+let g:VM_maps['Find Next']          = 'n'     "往下查找并增加光标。
+let g:VM_maps['Find Prev']          = 'N'     "往上查找并增加光标。
+let g:VM_maps['Skip Region']        = 'q'     "跳过当前光标到下一个。
+let g:VM_maps['Remove Region']      = 'Q'     "取消当前光标。
+let g:VM_maps['Select All']         = '\vA'   "进入多光标模式并选中所有同光标下的字符串。
+let g:VM_maps['Undo']               = 'u'     "Undo.
+let g:VM_maps['Redo']               = '<M-r>' "Redo.
+]],false)
+--------------- vim-visual-multi setup end -----------------------------
+
+--------------- hop setup begin -----------------------------
+require('hop').setup {
+    HopChar1 = {
+        vim.api.nvim_set_keymap('n', 'f', "<cmd>HopChar1<CR>",{noremap = true}),
+        keys = 'etovxqpdygfblzhckisuran'
+    },
+}
+--------------- hop setup end -----------------------------
+
+--------------- airline theme setup begin ----------------
+vim.api.nvim_exec(
+[[
+let g:airline_theme='google_dark'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_z = ''
+let g:airline_section_x = ''
+]] ,false)
+--------------- airline theme setup end ----------------
+
+--------------- coc.nvim setup begin ----------------
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.updatetime = 300
+vim.opt.signcolumn = "number"
+-- vim.opt.signcolumn = "yes"
+local keyset = vim.keymap.set
+-- Autocomplete
+function _G.check_back_space()
+    local col = vim.fn.col('.') - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
+-- Use Tab for trigger completion with characters ahead and navigate
+-- NOTE: There's always a completion item selected by default, you may want to enable
+-- no select by setting `"suggest.noselect": true` in your configuration file
+-- NOTE: Use command ':verbose imap <tab>' to make sure Tab is not mapped by
+-- other plugins before putting this into your config
+local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+
+-- Make <CR> to accept selected completion item or notify coc.nvim to format
+-- <C-g>u breaks current undo, please make your own choice
+keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+-- Use <c-j> to trigger snippets
+keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
+-- Highlight the symbol and its references on a CursorHold event(cursor is idle)
+vim.api.nvim_create_augroup("CocGroup", {})
+vim.api.nvim_create_autocmd("CursorHold", {
+    group = "CocGroup",
+    command = "silent call CocActionAsync('highlight')",
+    desc = "Highlight symbol under cursor on CursorHold"
+})
+-- Symbol renaming
+keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+--------------- coc.nvim setup end ----------------
 
 return require('packer').startup(function()
-    use {'wbthomason/packer.nvim'      }
-    use { 'phaazon/hop.nvim'           }
-    use { 'junegunn/vim-easy-align'    }
-    use { 'karb94/neoscroll.nvim'      }
-    use { 'godlygeek/tabular'          }
-    use { 'Chiel92/vim-autoformat'     }
-    use { 'frazrepo/vim-rainbow'       }
-    use { 'Yggdroot/indentLine'        }
-    use { 'lfv89/vim-interestingwords' }
-    use { 'dracula/vim'                }
-    use { 'mg979/vim-visual-multi'    }
-    use { 'junegunn/fzf'           , run      = './install --bin'}
+    use {'wbthomason/packer.nvim'}
+    use {'karb94/neoscroll.nvim'}
+    use {'roxma/vim-tmux-clipboard'}
     use { 'ibhagwan/fzf-lua'       , requires = { 'kyazdani42/nvim-web-devicons' } }
-    use {'akinsho/bufferline.nvim' , requires = 'kyazdani42/nvim-web-devicons'}
-    -- use {'neoclide/coc.nvim'    , branch   = 'release'}
+    use { "ellisonleao/gruvbox.nvim" }
+    use { 'Chiel92/vim-autoformat'     }
+    use { 'godlygeek/tabular'          }
+    use { 'lfv89/vim-interestingwords' }
+    use { 'mg979/vim-visual-multi'    }
+    use { 'phaazon/hop.nvim'           }
     use {'vim-airline/vim-airline'        }
     use {'vim-airline/vim-airline-themes' }
+    use {'neoclide/coc.nvim'    , branch   = 'release'}
 end)
+
