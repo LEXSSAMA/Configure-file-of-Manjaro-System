@@ -49,9 +49,9 @@ require'fzf-lua'.setup
         width       = 0.80,
         row         = 0.35,
         col         = 0.50,
-        git_icons   = false,
-        file_icons  = false,
-        color_icons = false,
+        git_icons   = true,
+        file_icons  = true,
+        color_icons = true,
         border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
         preview = {
             -- default     = 'bat',           -- override the default previewer?
@@ -74,7 +74,7 @@ require'fzf-lua'.setup
             -- applies only when scrollbar = 'float'
             scrollchars    = {'█', '' },      -- scrollbar chars ({ <full>, <empty> }
             -- applies only when scrollbar = 'border'
-            delay          = 100,             -- delay(ms) displaying the preview
+            delay          = 10,             -- delay(ms) displaying the preview
             -- prevents lag on fast scrolling
             winopts = {                       -- builtin previewer window options
                 number            = true,
@@ -137,12 +137,12 @@ require'fzf-lua'.setup
         vim.api.nvim_set_keymap('n', '<M-g>', "<cmd>lua require('fzf-lua').grep_cword()<CR>", { noremap = true, silent = true }),
         glob_flag    = "--iglob",
         multiprocess = true,
-        rg_opts      = "--sort none -U --mmap --hidden -j9 --column --line-number --no-heading --color=auto --case-sensitive  -g '!{.git,node_modules}/*'",
+        rg_opts      = "--sort none -U --mmap --hidden -j9 --column --line-number --no-heading --color=auto --smart-case  -g '!{.git,node_modules}/*'",
     },
     grep_visual = {
         vim.api.nvim_set_keymap('v', '<M-g>', "<cmd>lua require('fzf-lua').grep_visual()<CR>", { noremap = true, silent = true }),
         multiprocess = true,
-        rg_opts      = "--sort none -U --mmap --hidden -j9 --column --line-number --no-heading --color=auto --case-sensitive  -g '!{.git,node_modules}/*'",
+        rg_opts      = "--sort none -U --mmap --hidden -j9 --column --line-number --no-heading --color=auto --smart-case  -g '!{.git,node_modules}/*'",
     },
     tags_grep_cword = {
         vim.api.nvim_set_keymap('n', '<M-]>', "<cmd>:lua require('fzf-lua').tags_grep_cword()<CR>", { noremap = true, silent = true }),
@@ -150,7 +150,7 @@ require'fzf-lua'.setup
         ctags_file   = "tags",
         multiprocess = true,
         -- 'tags_live_grep' options, `rg` prioritizes over `grep`
-        rg_opts      = "--no-heading --color=always --case-sensitive",
+        rg_opts      = "--no-heading --color=auto --smart-case",
         grep_opts    = "--color=auto --perl-regexp",
         no_header    = false,    -- hide grep|cwd header?
         no_header_i  = false,    -- hide interactive header?
@@ -159,7 +159,7 @@ require'fzf-lua'.setup
         vim.api.nvim_set_keymap('n', '<F2>', "<cmd>:lua require('fzf-lua').btags()<CR>", { noremap = true, silent = true }),
         prompt       = 'BTags❯ ',
         ctags_file   = "tags",
-        rg_opts      = "--sort none -U --mmap -j9 --no-heading --color=auto --case-sensitive  -g '!{.git,node_modules}/*'",
+        rg_opts      = "--sort none -U --mmap -j9 --no-heading --color=auto --smart-case  -g '!{.git,node_modules}/*'",
         grep_opts    = "--color=auto --perl-regexp",
         multiprocess = true,
         fzf_opts     = { ["--info"] = "default", ["--tiebreak"] = "begin" },
@@ -172,7 +172,7 @@ require'fzf-lua'.setup
     previewers = {
         bat = {
             cmd    = "bat",
-            args   = "--style=numbers,changes --color always --line-range :500 {}",
+            args   = "--style=numbers,changes --color auto --line-range :500 {}",
             theme  = 'Coldark-Dark', -- bat preview theme (bat --list-themes)
             config = nil,            -- nil uses $BAT_CONFIG_PATH
         },
@@ -253,15 +253,6 @@ require('hop').setup {
 }
 --------------- hop setup end -----------------------------
 
---------------- airline theme setup begin ----------------
-vim.api.nvim_exec(
-[[
-let g:airline_theme='google_dark'
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_section_z = ''
-let g:airline_section_x = ''
-]] ,false)
---------------- airline theme setup end ----------------
 
 --------------- coc.nvim setup begin ----------------
 vim.opt.backup = false
@@ -288,7 +279,7 @@ keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 -- <C-g>u breaks current undo, please make your own choice
 keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 -- Use <c-j> to trigger snippets
-keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
+-- keyset("i", "<M-j>", "<Plug>(coc-snippets-expand-jump)")
 -- Highlight the symbol and its references on a CursorHold event(cursor is idle)
 vim.api.nvim_create_augroup("CocGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -300,19 +291,27 @@ vim.api.nvim_create_autocmd("CursorHold", {
 keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
 --------------- coc.nvim setup end ----------------
 
+--------------- alpha-nvim setup begin ----------------
+require'alpha'.setup(require'alpha.themes.startify'.config)
+--------------- alpha-nvim setup end ----------------
+
+--------------- windline.nvim setup begin ----------------
+require('wlsample.bubble')
+--------------- windline.nvim setup end ----------------
+
 return require('packer').startup(function()
-    use {'wbthomason/packer.nvim'}
-    use {'karb94/neoscroll.nvim'}
-    use {'roxma/vim-tmux-clipboard'}
-    use { 'ibhagwan/fzf-lua'       , requires = { 'kyazdani42/nvim-web-devicons' } }
-    use { "ellisonleao/gruvbox.nvim" }
+    use { 'wbthomason/packer.nvim'     }
+    use { 'karb94/neoscroll.nvim'      }
+    use { 'roxma/vim-tmux-clipboard'   }
+    use { "ellisonleao/gruvbox.nvim"   }
     use { 'Chiel92/vim-autoformat'     }
     use { 'godlygeek/tabular'          }
     use { 'lfv89/vim-interestingwords' }
-    use { 'mg979/vim-visual-multi'    }
+    use { 'mg979/vim-visual-multi'     }
     use { 'phaazon/hop.nvim'           }
-    use {'vim-airline/vim-airline'        }
-    use {'vim-airline/vim-airline-themes' }
-    use {'neoclide/coc.nvim'    , branch   = 'release'}
+    use { 'windwp/windline.nvim'       }
+    use { 'ibhagwan/fzf-lua'   , requires = { 'kyazdani42/nvim-web-devicons' }}
+    use { 'neoclide/coc.nvim'  , branch   = 'release'}
+    use { 'goolord/alpha-nvim' , requires = { 'nvim-tree/nvim-web-devicons' , 'nvim-lua/plenary.nvim' }}
 end)
 
