@@ -1,0 +1,174 @@
+import = [
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\aura.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\afterglow.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\alabaster.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\alabaster_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\alacritty_0_12.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\argonaut.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\ashes_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\ashes_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\atom_one_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\aura.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\ayu_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\ayu_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\baitong.toml",
+
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\base16_default_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\blood_moon.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\bluish.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\breeze.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\campbell.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\carbonfox.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\catppuccin.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\catppuccin_frappe.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\catppuccin_latte.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\catppuccin_macchiato.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\catppuccin_mocha.toml",
+
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\challenger_deep.toml",
+
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\chicago95.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\citylights.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\Cobalt2.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\cyber_punk_neon.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\dark_pastels.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\deep_space.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\doom_one.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\dracula.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\dracula_plus.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\everforest_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\everforest_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\falcon.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\flat_remix.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\flexoki.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_dark_colorblind.toml",
+    "C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_dark_default.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_dark_dimmed.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_dark_high_contrast.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_dark_tritanopia.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_light_colorblind.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_light_default.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_light_high_contrast.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\github_light_tritanopia.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gnome_terminal.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\google.toml",
+
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gotham.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gruvbox_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gruvbox_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gruvbox_material.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gruvbox_material_hard_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gruvbox_material_hard_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gruvbox_material_medium_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\gruvbox_material_medium_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\hardhacker.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\high_contrast.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\horizon-dark.toml",
+
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\hyper.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\inferno.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\iris.toml",
+
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\iterm.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\kanagawa_dragon.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\kanagawa_wave.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\konsole_linux.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\low_contrast.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\Mariana.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\marine_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\material_theme.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\material_theme_mod.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\meliora.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\midnight-haze.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\monokai_charcoal.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\monokai_pro.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\moonlight_ii_vscode.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\msx.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\nightfox.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\night_owlish_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\noctis-lux.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\nord.toml",
+
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\nordic.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\nord_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\oceanic_next.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\omni.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\one_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\palenight.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\papercolor_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\papercolor_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\papertheme.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\pastel_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\pencil_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\pencil_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\rainbow.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\remedy_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\rose-pine-dawn.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\rose-pine-moon.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\rose-pine.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\seashells.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\smoooooth.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\snazzy.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\solarized_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\solarized_light.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\solarized_osaka.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\taerminal.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\tango_dark.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\tender.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\terminal_app.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\thelovelace.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\tokyo-night-storm.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\tokyo-night.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\tomorrow_night.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\tomorrow_night_bright.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\ubuntu.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\wombat.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\xterm.toml",
+    #"C:\\Users\\liqibin\\AppData\\Roaming\\alacritty\\themes_toml\\themes\\zenburn.toml",
+]
+
+#[shell]
+#program = "ssh"
+#args = ["lqb@172.0.1.181"]
+
+[window]
+dimensions = { columns = 100, lines = 40 }
+padding = { x = 0, y = 0 }
+dynamic_padding = true
+
+decorations = "Full"
+startup_mode = "Windowed"
+#title = "Alacritty"
+dynamic_title = true
+
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+normal = { family = "ComicShannsMono Nerd Font Propo", style = "Regular" }
+bold = { family = "ComicShannsMono Nerd Font Propo", style = "Bold" }
+italic = { family = "ComicShannsMono Nerd Font Propo", style = "Regular" }
+bold_italic = { family = "ComicShannsMono Nerd Font Propo", style = "Bold" }
+size = 14
+
+[bell]
+animation = "Linear"
+
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "block", blinking = "Off" }
+
+vi_mode_style = "None"
+
+[terminal]
+osc52 = "CopyPaste"
+
+
+
